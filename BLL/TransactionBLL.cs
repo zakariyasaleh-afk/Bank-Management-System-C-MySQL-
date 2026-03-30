@@ -17,9 +17,7 @@ namespace BankManagementSystem.BLL
         public List<Transaction> GetRecentTransactions(int count = 10) => _transactionDAL.GetRecentTransactions(count);
         public List<(DateTime Date, decimal Total)> GetDailyTotals(int days = 30) => _transactionDAL.GetDailyTotals(days);
 
-        /// <summary>
         /// Processes a deposit into an account.
-        /// </summary>
         public (bool success, string message) Deposit(int accountId, decimal amount, string description = "")
         {
             if (amount <= 0)
@@ -59,9 +57,8 @@ namespace BankManagementSystem.BLL
             }
         }
 
-        /// <summary>
+       
         /// Processes a withdrawal from an account.
-        /// </summary>
         public (bool success, string message) Withdraw(int accountId, decimal amount, string description = "")
         {
             if (amount <= 0)
@@ -108,9 +105,8 @@ namespace BankManagementSystem.BLL
             }
         }
 
-        /// <summary>
+    
         /// Transfers money between two accounts using MySQL transaction (commit/rollback).
-        /// </summary>
         public (bool success, string message) Transfer(int fromAccountId, int toAccountId, decimal amount, string description = "")
         {
             if (amount <= 0)
