@@ -9,9 +9,8 @@ namespace BankManagementSystem.BLL
         private readonly UserDAL _userDAL = new();
         private readonly AuditLogBLL _auditLog = new();
 
-        /// <summary>
+    
         /// Authenticates a user. Returns the User object if successful, null otherwise.
-        /// </summary>
         public int GetUserCount() => _userDAL.GetUserCount();
 
         public (User? user, string message) Authenticate(string username, string password)
@@ -32,9 +31,8 @@ namespace BankManagementSystem.BLL
             return (user, "Login successful.");
         }
 
-        /// <summary>
+
         /// Changes a user's password. Used for forced change on first login and normal changes.
-        /// </summary>
         public (bool success, string message) ChangePassword(int userId, string currentPassword, string newPassword, string confirmPassword)
         {
             if (string.IsNullOrWhiteSpace(newPassword))
@@ -66,9 +64,7 @@ namespace BankManagementSystem.BLL
             return (true, "Password changed successfully.");
         }
 
-        /// <summary>
         /// Forces username and password change on first login.
-        /// </summary>
         public (bool success, string message) ForceCredentialChange(int userId, string newUsername, string newPassword, string confirmPassword)
         {
             if (string.IsNullOrWhiteSpace(newUsername))
