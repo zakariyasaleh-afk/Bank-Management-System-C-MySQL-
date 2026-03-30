@@ -108,10 +108,10 @@ namespace BankManagementSystem.BLL
 
         public decimal GetTotalRepaid(int loanId) => _paymentDAL.GetTotalPayments(loanId);
 
-        /// <summary>
+      
         /// Calculates total repayment amount with simple interest.
         /// Formula: Principal + (Principal * Rate * Years / 100)
-        /// </summary>
+    
         public decimal CalculateTotalRepayment(Loan loan)
         {
             double years = (loan.EndDate - loan.StartDate).TotalDays / 365.25;
@@ -119,9 +119,7 @@ namespace BankManagementSystem.BLL
             return loan.Amount + interest;
         }
 
-        /// <summary>
-        /// Calculates remaining balance on a loan.
-        /// </summary>
+      
         public decimal GetRemainingBalance(int loanId)
         {
             var loan = _loanDAL.GetById(loanId);
