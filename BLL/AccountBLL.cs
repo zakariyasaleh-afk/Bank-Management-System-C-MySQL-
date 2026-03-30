@@ -78,9 +78,7 @@ namespace BankManagementSystem.BLL
             return (true, "Account unfrozen successfully.");
         }
 
-        /// <summary>
         /// Gets the minimum balance for an account type.
-        /// </summary>
         public decimal GetMinBalance(string accountType)
         {
             return 0; // Allow full withdrawal as per user request
