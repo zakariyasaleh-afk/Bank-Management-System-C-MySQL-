@@ -92,9 +92,6 @@ namespace BankManagementSystem.DAL
             return transactions;
         }
 
-        /// <summary>
-        /// Returns daily transaction totals for chart display.
-        /// </summary>
         public List<(DateTime Date, decimal Total)> GetDailyTotals(int days = 30)
         {
             var result = new List<(DateTime, decimal)>();
