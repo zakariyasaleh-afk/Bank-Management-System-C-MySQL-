@@ -3,10 +3,9 @@ using BankManagementSystem.Helpers;
 
 namespace BankManagementSystem.DAL
 {
-    /// <summary>
+  
     /// Central MySQL connection manager.
     /// All DAL classes use this to obtain connections.
-    /// </summary>
     public static class DbConnectionManager
     {
         public static MySqlConnection GetConnection()
@@ -15,9 +14,8 @@ namespace BankManagementSystem.DAL
             return new MySqlConnection(connStr);
         }
 
-        /// <summary>
+        
         /// Tests the database connection. Returns true if successful.
-        /// </summary>
         public static bool TestConnection(out string errorMessage)
         {
             errorMessage = string.Empty;
@@ -35,10 +33,10 @@ namespace BankManagementSystem.DAL
             }
         }
 
-        /// <summary>
-        /// Initializes the database schema and seeds the default admin user if needed.
-        /// Called on application startup.
-        /// </summary>
+       
+        // Initializes the database schema and seeds the default admin user if needed.
+        // Called on application startup.
+
         public static void InitializeDatabase()
         {
             // First, connect without specifying a database to create it if needed
